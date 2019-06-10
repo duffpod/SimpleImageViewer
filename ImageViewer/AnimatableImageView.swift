@@ -74,6 +74,10 @@ private extension AnimatableImageView {
         case .bottomRight:
             imageView.bounds = Utilities.rect(forSize: image.size)
             imageView.center = Utilities.bottomRight(forSize: image.size, insideSize: bounds.size)
+        @unknown default:
+            print("\(#function): not implemented. Fallback to .scaleToFill")
+            imageView.bounds = Utilities.rect(forSize: bounds.size)
+            imageView.center = Utilities.center(forSize: bounds.size)
         }
     }
 }
